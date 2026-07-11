@@ -1,0 +1,284 @@
+@import "tailwindcss";
+
+:root {
+  /* ——— Palette Ukhtakaful (conservée) ——— */
+  --cream: #f6ede4;
+  --cream-2: #fff8f1;
+  --cream-3: #f0dfd2;
+
+  --pink: #ff7896;
+  --pink-dark: #ee5f82;
+  --pink-soft: #ffd4df;
+
+  --mint: #8be6c8;
+  --mint-dark: #50c8a7;
+  --mint-soft: #dcfbf1;
+
+  --yellow: #ffd75e;
+  --yellow-soft: #fff0b7;
+
+  --text: #352b35;
+  --muted: #7a6b76;
+  --border: #ead8ca;
+
+  --white: #fffdf9;
+
+  /* ——— Typographie ——— */
+  --font-sans-stack: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display-stack: var(--font-display), Georgia, "Times New Roman", serif;
+
+  /* ——— Ombres douces ——— */
+  --shadow-soft: 0 16px 40px rgba(53, 43, 53, 0.07);
+  --shadow-lift: 0 24px 60px rgba(53, 43, 53, 0.1);
+  --shadow-pink: 0 16px 40px rgba(255, 120, 150, 0.28);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--text);
+    font-family: var(--font-sans-stack);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--pink-soft);
+    color: var(--text);
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* ——— Typographie d'affichage ——— */
+  .font-display {
+    font-family: var(--font-display-stack);
+    letter-spacing: -0.01em;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--pink-dark);
+  }
+
+  /* Soulignement dessiné à la main sous un mot clé */
+  .underline-swash {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M3 9 Q 30 3 60 7 T 117 5' fill='none' stroke='%23ff7896' stroke-width='5' stroke-linecap='round' opacity='0.85'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 0.3em;
+    padding-bottom: 0.14em;
+  }
+
+  /* ——— Surfaces ——— */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 1.75rem;
+    box-shadow: var(--shadow-soft);
+  }
+
+  .card-cream {
+    background: var(--cream-2);
+    border: 1px solid var(--border);
+    border-radius: 1.75rem;
+  }
+
+  .soft-panel {
+    border: 1px solid rgba(234, 216, 202, 0.9);
+    background: rgba(255, 253, 249, 0.72);
+    box-shadow:
+      0 18px 50px rgba(53, 43, 53, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(14px);
+  }
+
+  .pastel-shadow {
+    box-shadow:
+      0 22px 50px rgba(255, 120, 150, 0.16),
+      0 18px 45px rgba(139, 230, 200, 0.16);
+  }
+
+  /* ——— Boutons ——— */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    border-radius: 9999px;
+    padding: 0.95rem 1.9rem;
+    font-weight: 800;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .btn:focus-visible {
+    outline: 3px solid var(--pink-soft);
+    outline-offset: 2px;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  .btn:disabled {
+    transform: none;
+    cursor: not-allowed;
+    opacity: 0.45;
+  }
+
+  .btn-pink {
+    background: var(--pink);
+    color: #fff;
+    box-shadow: var(--shadow-pink);
+  }
+
+  .btn-pink:hover {
+    background: var(--pink-dark);
+  }
+
+  .btn-outline {
+    background: var(--white);
+    border-color: var(--border);
+    color: var(--text);
+  }
+
+  .btn-outline:hover {
+    background: var(--cream-2);
+    border-color: var(--pink-soft);
+  }
+
+  .btn-dark {
+    background: var(--text);
+    color: #fff;
+  }
+
+  .btn-dark:hover {
+    background: var(--pink-dark);
+  }
+
+  .btn-mint {
+    background: var(--mint);
+    color: var(--text);
+  }
+
+  .btn-mint:hover {
+    background: var(--mint-dark);
+    color: #fff;
+  }
+
+  /* ——— Fond doux global ——— */
+  .bg-soft-noise {
+    position: relative;
+  }
+
+  .bg-soft-noise::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.5;
+    background:
+      radial-gradient(circle at 12% 14%, rgba(255, 120, 150, 0.14), transparent 24rem),
+      radial-gradient(circle at 85% 10%, rgba(139, 230, 200, 0.18), transparent 26rem),
+      radial-gradient(circle at 70% 80%, rgba(255, 215, 94, 0.14), transparent 22rem),
+      radial-gradient(circle at 8% 85%, rgba(255, 212, 223, 0.28), transparent 20rem);
+  }
+
+  /* ——— Animations ——— */
+  .float-soft {
+    animation: gentle-float 6s ease-in-out infinite;
+  }
+
+  .twinkle {
+    animation: twinkle 4s ease-in-out infinite;
+  }
+
+  .spin-slow {
+    animation: slow-spin 24s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .float-soft,
+    .twinkle,
+    .spin-slow {
+      animation: none;
+    }
+  }
+}
+
+@keyframes gentle-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.92);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
