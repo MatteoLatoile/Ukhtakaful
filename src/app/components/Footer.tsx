@@ -97,7 +97,7 @@ export default function Footer() {
           <ul className="mt-5 space-y-3 text-sm font-bold text-[var(--muted)]">
             <li className="flex items-center gap-2.5">
               <IconSend className="h-4.5 w-4.5 shrink-0 text-[var(--pink-dark)]" />
-              <span>Telegram : @ukhtakaful</span>
+              <span>Telegram : @ukhtakafulpro</span>
             </li>
             <li className="flex items-center gap-2.5">
               <IconMail className="h-4.5 w-4.5 shrink-0 text-[var(--pink-dark)]" />

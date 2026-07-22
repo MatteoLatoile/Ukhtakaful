@@ -86,7 +86,7 @@ export default function HomePage() {
             <p className="mt-7 max-w-xl text-lg font-medium leading-8 text-[var(--muted)]">
               Ukhtakaful propose des formations simples, rassurantes et
               bienveillantes pour comprendre le sommeil de bébé, ses réveils,
-              ses besoins — et avancer sans méthode brutale.
+              ses besoins et avancer sans méthode brutale.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">

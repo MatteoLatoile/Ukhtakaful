@@ -17,7 +17,7 @@ const channels = [
   {
     icon: IconSend,
     title: "Telegram",
-    value: "@ukhtakaful",
+    value: "@ukhtakafulpro",
     text: "Le moyen le plus direct pour poser ta question ou t’inscrire à une formation.",
     accent: "bg-[var(--mint-soft)] text-[var(--mint-dark)]",
   },

@@ -22,7 +22,7 @@ const offers = [
   {
     icon: IconCloud,
     title: "Question sommeil",
-    price: "19 €",
+    price: "49 €",
     description:
       "Pour une question précise autour du sommeil de bébé ou de l’enfant.",
     features: [
@@ -35,7 +35,7 @@ const offers = [
   {
     icon: IconCompass,
     title: "Analyse complète",
-    price: "39 €",
+    price: "129 €",
     description:
       "Pour faire le point sur les siestes, les réveils, l’endormissement et le rythme.",
     features: [
@@ -48,7 +48,7 @@ const offers = [
   {
     icon: IconHeart,
     title: "Accompagnement personnalisé",
-    price: "79 €",
+    price: "329 €",
     description:
       "Pour être accompagnée avec douceur sur plusieurs jours selon la situation.",
     features: [
@@ -200,7 +200,7 @@ export default function AccompagnementsPage() {
               <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold text-[var(--muted)]">
                 <span className="flex items-center gap-2">
                   <IconSend className="h-4.5 w-4.5 text-[var(--pink-dark)]" />
-                  Telegram : @ukhtakaful
+                  Telegram : @ukhtakafulpro
                 </span>
 
                 <span className="flex items-center gap-2">
