@@ -1,11 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
-import FloatingShapes from "./components/FloatingShapes";
+import Hero from "./components/Hero";
+import ScrollProgress from "./components/ScrollProgress";
 import FormationCard from "./components/FormationCard";
 import Reveal from "./components/Reveal";
 import {
   IconArrowRight,
-  IconCheck,
   IconCompass,
   IconCrescent,
   IconHeadphones,
@@ -18,12 +17,6 @@ import {
   IconStarFilled,
 } from "./components/icons";
 import { formations } from "@/lib/formations";
-
-const reassurances = [
-  "Sans laisser pleurer",
-  "À ton rythme",
-  "Accès personnel",
-];
 
 const steps = [
   {
@@ -67,103 +60,10 @@ const values = [
 export default function HomePage() {
   return (
     <>
-      {/* ——— Hero ——— */}
-      <section className="relative overflow-hidden">
-        <FloatingShapes />
+      <ScrollProgress />
 
-        <div className="relative z-10 mx-auto grid min-h-[calc(100vh-90px)] max-w-7xl items-center gap-14 px-5 py-16 lg:grid-cols-[1.05fr_0.95fr]">
-          <div>
-            <p className="eyebrow rounded-full border border-[var(--border)] bg-[var(--white)]/80 px-4 py-2 shadow-sm backdrop-blur">
-              <IconCrescent className="h-3.5 w-3.5" />
-              Préparations sommeil pour mamans
-            </p>
-
-            <h1 className="font-display mt-8 max-w-2xl text-balance text-5xl font-bold leading-[1.06] text-[var(--text)] md:text-[4.4rem]">
-              Des nuits plus douces commencent par la{" "}
-              <em className="underline-swash not-italic">compréhension</em>.
-            </h1>
-
-            <p className="mt-7 max-w-xl text-lg font-medium leading-8 text-[var(--muted)]">
-              Ukhtakaful propose des formations simples, rassurantes et
-              bienveillantes pour comprendre le sommeil de bébé, ses réveils,
-              ses besoins et avancer sans méthode brutale.
-            </p>
-
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Link href="/formations" className="btn btn-pink">
-                Voir les formations
-                <IconArrowRight className="h-4.5 w-4.5" />
-              </Link>
-
-              <Link href="/accompagnements" className="btn btn-outline">
-                Être accompagnée
-              </Link>
-            </div>
-
-            <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-3">
-              {reassurances.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-center gap-2 text-sm font-bold text-[var(--muted)]"
-                >
-                  <span className="flex h-5.5 w-5.5 items-center justify-center rounded-full bg-[var(--mint-soft)] text-[var(--mint-dark)]">
-                    <IconCheck className="h-3.5 w-3.5" />
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="relative mx-auto w-full max-w-md">
-            <div
-              aria-hidden
-              className="absolute -left-10 -top-10 h-28 w-28 rounded-full bg-[var(--yellow)] opacity-60 blur-2xl"
-            />
-            <div
-              aria-hidden
-              className="absolute -bottom-10 -right-10 h-36 w-36 rounded-full bg-[var(--mint)] opacity-40 blur-2xl"
-            />
-
-            <div className="pastel-shadow relative rotate-[1.5deg] rounded-[2.8rem] border border-white/80 bg-[var(--white)]/85 p-7 backdrop-blur transition-transform duration-500 hover:rotate-0">
-              <div className="rounded-[2rem] bg-gradient-to-b from-[var(--cream-2)] to-[var(--pink-soft)]/40 p-6">
-                <Image
-                  src="/logo.png"
-                  alt="Logo Ukhtakaful"
-                  width={340}
-                  height={340}
-                  className="mx-auto h-auto w-4/5 object-contain drop-shadow-[0_16px_30px_rgba(53,43,53,0.12)]"
-                  priority
-                />
-              </div>
-
-              <div className="mt-5 rounded-[1.8rem] bg-[var(--white)] p-6 shadow-sm ring-1 ring-[var(--border)]">
-                <p className="eyebrow">Mieux comprendre pour mieux dormir</p>
-
-                <p className="font-display mt-3 text-2xl font-bold leading-snug text-[var(--text)]">
-                  Des modules doux, clairs et rassurants.
-                </p>
-
-                <p className="mt-3 text-sm font-medium leading-7 text-[var(--muted)]">
-                  Réveils nocturnes, allaitement, rythme, siestes, besoins de
-                  proximité et ajustements progressifs.
-                </p>
-              </div>
-            </div>
-
-            <div className="float-soft absolute -right-6 top-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--yellow)] text-[var(--text)] shadow-lg">
-              <IconStarFilled className="h-7 w-7" />
-            </div>
-
-            <div
-              className="float-soft absolute -left-7 bottom-24 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--mint)] text-[var(--text)] shadow-lg"
-              style={{ animationDelay: "1.4s" }}
-            >
-              <IconSparkle className="h-7 w-7" />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ——— Hero animé ——— */}
+      <Hero />
 
       {/* ——— Formations ——— */}
       <section className="relative z-10 mx-auto max-w-7xl px-5 py-20">
@@ -189,7 +89,7 @@ export default function HomePage() {
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           {formations.map((formation, index) => (
-            <Reveal key={formation.slug} delay={index * 0.12}>
+            <Reveal key={formation.slug} delay={index * 0.14} variant="scale">
               <FormationCard formation={formation} />
             </Reveal>
           ))}
@@ -198,7 +98,7 @@ export default function HomePage() {
 
       {/* ——— Comment ça marche ——— */}
       <section className="relative z-10 mx-auto max-w-7xl px-5 py-12">
-        <Reveal>
+        <Reveal variant="blur">
           <div className="card relative overflow-hidden p-8 md:p-14">
             <div
               aria-hidden
@@ -222,25 +122,27 @@ export default function HomePage() {
                   const Icon = step.icon;
 
                   return (
-                    <div key={step.title} className="relative">
-                      <div className="flex items-center gap-4">
-                        <span className="flex h-13 w-13 shrink-0 items-center justify-center rounded-2xl bg-[var(--pink-soft)] text-[var(--pink-dark)]">
-                          <Icon className="h-6.5 w-6.5" />
-                        </span>
+                    <Reveal key={step.title} delay={index * 0.14} variant="up">
+                      <div className="relative">
+                        <div className="flex items-center gap-4">
+                          <span className="flex h-13 w-13 shrink-0 items-center justify-center rounded-2xl bg-[var(--pink-soft)] text-[var(--pink-dark)]">
+                            <Icon className="h-6.5 w-6.5" />
+                          </span>
 
-                        <span className="font-display text-4xl font-bold text-[var(--cream-3)]">
-                          0{index + 1}
-                        </span>
+                          <span className="font-display text-4xl font-bold text-[var(--cream-3)]">
+                            0{index + 1}
+                          </span>
+                        </div>
+
+                        <h3 className="mt-5 text-xl font-black text-[var(--text)]">
+                          {step.title}
+                        </h3>
+
+                        <p className="mt-3 text-sm font-medium leading-7 text-[var(--muted)]">
+                          {step.text}
+                        </p>
                       </div>
-
-                      <h3 className="mt-5 text-xl font-black text-[var(--text)]">
-                        {step.title}
-                      </h3>
-
-                      <p className="mt-3 text-sm font-medium leading-7 text-[var(--muted)]">
-                        {step.text}
-                      </p>
-                    </div>
+                    </Reveal>
                   );
                 })}
               </div>
@@ -269,7 +171,7 @@ export default function HomePage() {
             const Icon = value.icon;
 
             return (
-              <Reveal key={value.title} delay={index * 0.12}>
+              <Reveal key={value.title} delay={index * 0.14} variant="scale">
                 <div className="card h-full p-8 text-center transition hover:-translate-y-1.5 hover:shadow-[var(--shadow-lift)]">
                   <span
                     className={`mx-auto flex h-16 w-16 items-center justify-center rounded-3xl ${value.accent}`}
@@ -293,18 +195,18 @@ export default function HomePage() {
 
       {/* ——— CTA finale ——— */}
       <section className="relative z-10 mx-auto max-w-7xl px-5 pb-8">
-        <Reveal>
+        <Reveal variant="blur">
           <div className="relative overflow-hidden rounded-[2.5rem] bg-[var(--text)] p-9 text-white md:p-14">
             <div
               aria-hidden
               className="pointer-events-none absolute -right-10 -top-14 text-[var(--yellow)] opacity-25"
             >
-              <IconCrescent className="h-52 w-52 -rotate-12" />
+              <IconCrescent className="h-52 w-52 -rotate-12 spin-slow" />
             </div>
 
             <div
               aria-hidden
-              className="pointer-events-none absolute bottom-8 left-1/2 text-[var(--pink-soft)] opacity-30"
+              className="pointer-events-none absolute bottom-8 left-1/2 text-[var(--pink-soft)] opacity-30 twinkle"
             >
               <IconStarFilled className="h-10 w-10" />
             </div>
@@ -326,9 +228,9 @@ export default function HomePage() {
               </div>
 
               <div className="flex shrink-0 flex-col gap-3 sm:flex-row md:flex-col">
-                <Link href="/formations" className="btn btn-pink">
+                <Link href="/formations" className="btn btn-pink group">
                   Voir les formations
-                  <IconArrowRight className="h-4.5 w-4.5" />
+                  <IconArrowRight className="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" />
                 </Link>
 
                 <Link
