@@ -43,7 +43,7 @@ const offers = [
       "Siestes, réveils et rythme",
       "Des pistes concrètes et douces",
     ],
-    featured: false,
+    featured: true,
   },
   {
     icon: IconHeart,
@@ -56,7 +56,7 @@ const offers = [
       "Adapté à ta situation",
       "Soutien pas à pas",
     ],
-    featured: true,
+    featured: false,
   },
 ];
 
@@ -200,7 +200,7 @@ export default function AccompagnementsPage() {
               <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold text-[var(--muted)]">
                 <span className="flex items-center gap-2">
                   <IconSend className="h-4.5 w-4.5 text-[var(--pink-dark)]" />
-                  Telegram : @ukhtakafulpro
+                  Telegram : @ukhtakaful
                 </span>
 
                 <span className="flex items-center gap-2">

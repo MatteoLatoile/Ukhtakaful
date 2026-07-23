@@ -282,17 +282,17 @@ export default function Hero() {
               />
             )}
 
-            <div className="rounded-[2rem] bg-gradient-to-b from-[var(--cream-2)] to-[var(--pink-soft)]/40 p-6">
+            <div className="rounded-[2rem] bg-gradient-to-b from-[var(--cream-2)] to-[var(--pink-soft)]/40">
               <motion.div
                 animate={reduceMotion ? undefined : { y: [0, -8, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
               >
                 <Image
-                  src="/logo.png"
+                  src="/dessin_maman.png"
                   alt="Logo Ukhtakaful"
-                  width={340}
-                  height={340}
-                  className="mx-auto h-auto w-4/5 object-contain drop-shadow-[0_16px_30px_rgba(53,43,53,0.12)]"
+                  width={300}
+                  height={300}
+                  className="mx-auto h-auto w-full object-contain drop-shadow-[0_16px_30px_rgba(53,43,53,0.12)]"
                   priority
                 />
               </motion.div>
